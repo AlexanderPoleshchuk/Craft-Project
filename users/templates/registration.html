@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="registration-form">
+	 <div class="container">
+		 <h2>Регистрация</h2>
+		 <div class="col-md-6 reg-form">
+			 <div class="reg">
+				 <p>Добро пожаловать. Зарегистрируйтесь чтобы продолжить.</p>
+				 <p>Если Вы уже зарегистрированы на нашем сайте, <a href="/login">нажмите "Войти"</a></p>
+				 <form method="post" action="/registration">
+                     {% csrf_token %}
+                     {{form.as_p}}
+                     <input type="submit" value="Зарегистрироваться">
+				 </form>
+			 </div>
+		 </div>
+     </div>
+</div>
+
+{% endblock %}
