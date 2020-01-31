@@ -10,14 +10,14 @@
 				 <p>Добро пожаловать. Авторизуйтесь чтобы продолжить.</p>
 				 <p>Если Вы еще не зарегистрированы на нашем сайте, <a href="/registration">нажмите "Регистрация"</a></p>
 				 {% if error %}
-                     <span style="color: red;">Email address or Password is incorrect!</span>
+                     <span style="color: red;">Username or Password is incorrect!</span>
                  {% endif %}
                      <form action="/login" method="post">
                          {% csrf_token %}
-                         <h5>Email address:</h5>
-                         <input type="text" value="">
+                         <h5>Username:</h5>
+                         <input name="username" type="text" placeholder="">
                          <h5>Password:</h5>
-                         <input type="password" value="">
+                         <input name="password" type="password" placeholder="">
                          <input type="submit" value="Войти">
                      </form>
 		     </div>

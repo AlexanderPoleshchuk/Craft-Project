@@ -6,6 +6,7 @@ class RegistrationForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
         fields = [
+            'username',
             'first_name',
             'last_name',
             'password',
@@ -15,4 +16,10 @@ class RegistrationForm(forms.ModelForm):
             'password': forms.PasswordInput(),
         }
 
+
+    def save(self, commit = True):
+        user = super().save(commit=False)
+        user.set_password(user.password)
+        user.save()
+        return user
 
