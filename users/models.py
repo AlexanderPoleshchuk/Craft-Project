@@ -37,6 +37,7 @@ class Users(AbstractUser):
         host = settings.HOST_NAME
         key = self.get_signed_key()
         link = f"{host}/verify-email?key={key}"
+        print('HELLO',key)
         return link
 
     def check_key(self, secret_key):

@@ -14,32 +14,7 @@
 </head>
 
 <body>
-<div class="header">
-	 <div class="container">
-		 <div class="header-left">
-			 <div class="top-menu">
-				 <ul>
-				 <li class="active"><a href="main">Главная</a></li>
-				 <li><a href="panel.html">3d Панели</a></li>
-				 <li><a href="stone.html">Декоративный камень</a></li>
-				 </ul>
-			 </div>
-		 </div>
-
-		 <div class="header-right">
-			 <div class="signin">
-				  <div class="cart-sec">
-				  <a href="cart.html"><img href="cart.html" src="static/images/cart.png" alt="cart"/>(0)</a></div>
-				  <ul>
-					 <li><a href="registration">Регистрация</a> <span>/<span> &nbsp;</li>
-					 <li><a href="login"> Войти</a></li>
-				 </ul>
-			 </div>
-		 </div>
-
-		 <div class="clearfix"></div>
-	 </div>
-</div>
+{% include 'header.html' with user=user %}
 <!---->
 {% block content %}
 <script src="static/js/responsiveslides.min.js"></script>

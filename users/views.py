@@ -54,12 +54,13 @@ def login_view(request):
 @login_required
 @require_GET
 def verify_view(request):
-    # secret_ket = request.GET.get('key')
-    # print(secret_ket)
-    # if request.user.check_key(secret_ket):
-    return render(request, 'confirmation_success.html')
-    # else:
-    #     return redirect("/")
+    print(request.GET.get('key'))
+    secret_ket = request.GET.get('key')
+    print(secret_ket)
+    if request.user.check_key(secret_ket):
+        return render(request, 'confirmation_success.html')
+    else:
+        return redirect("/")
 
 
 def logout_view(request):

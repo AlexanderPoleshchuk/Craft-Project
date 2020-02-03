@@ -1,0 +1,38 @@
+{% load static %}
+
+
+<div class="header">
+	 <div class="container">
+		 <div class="header-left">
+			 <div class="top-menu">
+				 <ul>
+				 <li class="active"><a href="main">Главная</a></li>
+				 <li><a href="panel.html">3d Панели</a></li>
+				 <li><a href="stone.html">Декоративный камень</a></li>
+				 </ul>
+			 </div>
+		 </div>
+
+		 <div class="header-right">
+			 <div class="signin">
+				  <div class="cart-sec">
+                      {% if user.is_authenticated %}
+                      <a href="cart.html"><img href="cart.html" src="static/images/cart.png" alt="cart"/>(0)</a></div>
+				  <ul>
+					 <li><a href="/userpanel">Личный кабинет</a> <span>/<span> &nbsp;</li>
+					 <li><a href="/logout"> Выйти</a></li>
+				 </ul>
+                     {% else %}
+<!--                      <a href="cart.html"><img href="cart.html" src="static/images/cart.png" alt="cart"/>(0)</a></div>-->
+				  <ul>
+					 <li><a href="registration">Регистрация</a> <span>/<span> &nbsp;</li>
+					 <li><a href="login"> Войти</a></li>
+				 </ul>
+                     {% endif %}
+
+			 </div>
+		 </div>
+
+		 <div class="clearfix"></div>
+	 </div>
+</div>
