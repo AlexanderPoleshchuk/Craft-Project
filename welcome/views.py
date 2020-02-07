@@ -10,3 +10,11 @@ def main_view(request):
 def about_view(request):
     if request.method == 'GET':
         return render(request, "about.html")
+
+def checkout(request):
+    if request.method == 'GET':
+        return render(request, "checkout.html")
+
+def contacts(request):
+    if request.method == 'GET':
+        return render(request, "contacts.html")

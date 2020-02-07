@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<div class="single-section">
+	 <div class="col-md-8 fashions2">
+			<div class="slider2">
+                {% for image_item in product.productimage_set.all %}
+                    <div class="product-image-item">
+                        <img src="{{ image_item.image.url }}" class="img-responsive">
+                    </div>
+                {% endfor %}
+		   </div>
+	  </div>
+	<div class="col-md-4 side-bar2">
+		  <div class="product-price">
+			   <div class="product-name">
+				 <h2>{{product.name}}</h2>
+					<p>{{product.description}}</p>
+					<span>{{product.price}} BYN</span>
+	                   <div class="clearfix"></div>
+			  </div>
+              <br>
+              {% if user.is_authenticated %}
+
+              <div class="add-to-cart-btn">
+                  <form id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}">{% csrf_token %}
+                      <input type="number" class="form-control" name="number" id="number">
+
+                  <button type = 'submit' id="submit_btn" class="btn btn-success"
+                          data-product_id = '{{product.id}}'
+                          data-name = '{{product.name}}'
+                          data-price ="{{ product.price }}"
+                  >
+                      Купить
+                  </button>
+              </div>
+                  </form>
+              {% endif %}
+		 </div>
+      </div>
+
+	 <div class="clearfix"></div>
+</div>
+{% endblock %}

@@ -97,9 +97,20 @@ margin-left:3em;
 border-bottom:2px solid #1a1818;
 }
 .cart-sec{
+position: relative;
+width: 440px;
+padding: 15px 10px;
 vertical-align:super;
 display:inline-block;
 margin-right:3px;
+}
+.basket-items{
+position: absolute;
+top: 60px;
+width: 100%;
+background-color: #c8c7c7d4;
+z-index: 10;
+padding: 10px;
 }
 .cart-sec a{
 color:#fff;
@@ -399,7 +410,7 @@ line-height:1.5em;
 .brands{
 margin-bottom:2em;
 }
-.Fashion p{
+.p{
 color:#797979;
 font-size:1.1em;
 line-height:1.8em;
@@ -560,7 +571,7 @@ color:#1a1818;
 font-size:1.3em;
 }
 .fashion-section{
-margin:3em 0 0 0; 
+margin:1px 0 0 0;
 }
 .fashion-grid{
 position:relative;
@@ -1788,6 +1799,7 @@ border-bottom:0;
 padding-bottom: 3px;
 height: 25px;
 vertical-align: top;
+
 }
 .signin ul li a {
 font-size: 10px;
@@ -2085,4 +2097,19 @@ margin-bottom: 7px;
 .cart-list ul li a {
 font-size: 0.85em;
 }
+}
+
+.product-item{
+height: 310px;
+background-color: grey;
+border: 3px solid lightgrey;
+position: relative;
+padding: 5px;
+text-align: center;
+margin-bottom: 20px;
+
+}
+
+.product-image-item{
+margin-bottom: 20px;
 }

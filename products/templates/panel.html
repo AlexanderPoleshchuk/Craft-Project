@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+{% include 'header.html' with user=user %}
+<div class="men-fashions">
+	 <div class="container">
+		 <div class="col-md-9 fashions">
+			 <div class="title">
+			 </div>
+
+			 <div class="fashion-section">
+					 {% for product_image in products_images %}
+					     <div class="col-md-4 fashion-grid">
+							 <div class="product-item">
+								 <div>
+									 <a href="{% url 'product' product_image.product.id %}">
+									 <img src="{{product_image.image.url}}" class="img-responsive">
+									 </a>
+								 </div>
+								 <h4>{{product_image.product.name}}</h4>
+							 </div>
+						 </div>
+					 {% endfor %}
+
+			 </div>
+		 </div>
+		 <div class="clearfix"></div>
+	 </div>
+</div>
+{% include 'footer.html' with user=user %}
+
+</body>
+</html>

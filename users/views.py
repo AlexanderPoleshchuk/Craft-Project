@@ -21,7 +21,7 @@ def registration(request):
             user.email_user(
                 "Email confirmation",
                 f"Please follow the <a href='{link}'>link</a>",
-                from_email='admin@bio.com'
+                from_email='admin@admin.com'
             )
             user.verification_email_sent_at = timezone.now()
             user.save()
@@ -33,6 +33,7 @@ def registration(request):
 
 
 def login_view(request):
+
     if request.method == 'GET':
         return render(request, 'login.html', context={
             "error": False
@@ -40,10 +41,14 @@ def login_view(request):
     elif request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
+        next = request.POST.get('next')
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('/verify-email')
+            if next is not None:
+                return redirect(next)
+            else:
+                return redirect("/")
 
         else:
             return render(request, 'login.html', context={
@@ -56,8 +61,9 @@ def login_view(request):
 def verify_view(request):
     print(request.GET.get('key'))
     secret_ket = request.GET.get('key')
-    print(secret_ket)
     if request.user.check_key(secret_ket):
+        request.user.is_email = True
+        request.user.save()
         return render(request, 'confirmation_success.html')
     else:
         return redirect("/")
